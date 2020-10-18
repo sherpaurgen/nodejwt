@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = function auth(req, res, next) {
-    const token = req.headers['auth-token'];
+    console.log(req.headers)
+    //const token = req.headers['auth-token'];
+    const token = req.header('auth-token')
     if (!token) return res.status(401).send('Access denied');
 
     try {
         const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        console.log("verifiedVal" + verified)
         req.user = verified;
         next();
     } catch (err) {
@@ -14,3 +15,5 @@ module.exports = function auth(req, res, next) {
     }
 
 };
+
+//https://stackoverflow.com/questions/60855411/req-header-vs-req-headers-in-express

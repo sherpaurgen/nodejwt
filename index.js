@@ -14,9 +14,11 @@ app.use(express.json())
 
 //import routes
 const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts');
 
 //route middleware
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute)
 
 
 

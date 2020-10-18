@@ -15,9 +15,9 @@ app.use(express.json())
 //import routes
 const authRoute = require('./routes/auth');
 
-
 //route middleware
 app.use('/api/user', authRoute);
+
 
 
 app.listen(3000, () => console.log('Server up and running port 3000...'))

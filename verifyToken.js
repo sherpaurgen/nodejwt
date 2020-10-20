@@ -17,3 +17,4 @@ module.exports = function auth(req, res, next) {
 };
 
 //https://stackoverflow.com/questions/60855411/req-header-vs-req-headers-in-express
+// req.header('xx') is recommended way
